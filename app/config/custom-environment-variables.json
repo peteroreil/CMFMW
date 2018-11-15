@@ -1,0 +1,32 @@
+{
+    "database": {
+        "host": "DATABASE_HOST",
+        "user": "DATABASE_USER",
+        "pass": "DATABASE_PASS",
+        "name": "DATABASE_NAME",
+        "port": "DATABASE_PORT"
+    },
+
+    "server": {
+        "port": "APP_PORT"
+    },
+
+    "service": {
+        "api_version": "APP_VERSION"
+    },
+
+    "test": {
+        "service": {
+            "hostname": "TEST_APP_HOSTNAME",
+            "port": "TEST_APP_PORT",
+            "version": "TEST_API_VERSION"
+        },
+        "database": {
+            "host": "TEST_DATABASE_HOST",
+            "user": "TEST_DATABASE_USER",
+            "pass": "TEST_DATABASE_PASS",
+            "name": "TEST_DATABASE_NAME",
+            "port": "TEST_DATABASE_PORT"
+        }
+    }
+}

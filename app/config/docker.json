@@ -1,0 +1,32 @@
+{
+    "database": {
+        "host": "",
+        "user": "",
+        "pass": "",
+        "name": "",
+        "port": ""
+    },
+
+    "server": {
+        "port": ""
+    },
+
+    "service": {
+        "api_version": ""
+    },
+
+    "test": {
+        "service": {
+            "hostname": "localhost",
+            "port": 3000,
+            "version": "v1"
+        },
+        "database": {
+            "host": "localhost",
+            "user": "appuser",
+            "pass": "appPassword",
+            "name": "firebird",
+            "port": 27017
+        }
+    }
+}

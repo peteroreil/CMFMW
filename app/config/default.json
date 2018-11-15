@@ -1,0 +1,32 @@
+{
+    "database": {
+        "host": "localhost",
+        "user": "",
+        "pass": "",
+        "name": "some_db",
+        "port": 27107
+    },
+
+    "server": {
+        "port": 8080
+
+    },
+
+    "service": {
+        "api_version": "v1"
+    },
+    "test": {
+        "service": {
+            "hostname": "localhost",
+            "port": 8080,
+            "version": "v1"
+        },
+        "database": {
+            "host": "locahost",
+            "user": "",
+            "pass": "",
+            "name": "some_db",
+            "port": 27107
+        }
+    }
+}

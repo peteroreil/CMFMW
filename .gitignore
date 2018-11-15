@@ -1,5 +1,6 @@
-app/config
+
 !app/config/default.json
 !app/config/custom-environment-variables.json
 !app/config/docker.json
+app/config/*.json
 node_modules
