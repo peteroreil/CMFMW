@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "integration": "NODE_ENV=docker NODE_CONFIG_DIR=./app/config mocha test/integration/test-*.js",
+    "integration": "NODE_CONFIG_DIR=./app/config mocha test/integration/test-*.js",
     "start": "NODE_CONFIG_DIR=./app/config node ./app/index.js"
   },
   "author": "",

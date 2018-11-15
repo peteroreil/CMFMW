@@ -1,14 +1,14 @@
 {
     "database": {
         "host": "localhost",
-        "user": "",
-        "pass": "",
-        "name": "some_db",
-        "port": 27107
+        "user": "appuser",
+        "pass": "appPassword",
+        "name": "firebird",
+        "port": 27017
     },
 
     "server": {
-        "port": 8080
+        "port": 3000
 
     },
 
@@ -18,15 +18,15 @@
     "test": {
         "service": {
             "hostname": "localhost",
-            "port": 8080,
+            "port": 3000,
             "version": "v1"
         },
         "database": {
-            "host": "locahost",
-            "user": "",
-            "pass": "",
-            "name": "some_db",
-            "port": 27107
+            "host": "localhost",
+            "user": "appuser",
+            "pass": "appPassword",
+            "name": "firebird",
+            "port": 27017
         }
     }
 }
