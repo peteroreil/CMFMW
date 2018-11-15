@@ -1,0 +1,49 @@
+version: '2.2'
+
+services:
+
+  mongodb:
+     image: mongo:3.6.8
+     expose: 
+      - 27017
+     ports: 
+      - 27017:27017
+     networks:
+      - application
+     environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: root
+        MONGO_INITDB_DATABASE: firebird
+     volumes:
+      - ./mongo/init.d:/docker-entrypoint-initdb.d
+     healthcheck:
+      test: ["CMD", "mongo", "--host", "mongodb", "--port", "27017", "--eval", "\"db.runCommand('ping').ok\"", "--quiet" ]
+      interval: 5s,
+      timeout: 3s
+      retries: 30
+
+  app:
+     depends_on:
+      mongodb:
+        condition: service_healthy
+     build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+     environment:
+      - DATABASE_HOST=mongodb
+      - DATABASE_USER=appuser
+      - DATABASE_PASS=appPassword
+      - DATABASE_NAME=firebird
+      - DATABASE_PORT=27017
+      - APP_PORT=3000
+     ports:
+      - 3000:3000
+     healthcheck: 
+      test: ["CMD", "curl", "-f", "http://localhost:3000/v1/ping"]
+     networks:
+      - application
+
+networks:
+  application:
+
+

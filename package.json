@@ -1,0 +1,27 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "integration": "mocha test/integration/test-*.js",
+    "docs": "./node_modules/.bin/esdoc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "3.5.2",
+    "config": "2.0.1",
+    "express": "4.16.4",
+    "mongoose": "5.3.9",
+    "morgan": "1.9.1",
+    "winston": "3.1.0"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "5.2.0",
+    "mongodb": "3.1.9",
+    "request": "2.88.0",
+    "request-promise": "4.2.2"
+  }
+}
