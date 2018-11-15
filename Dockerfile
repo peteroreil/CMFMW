@@ -2,9 +2,9 @@ FROM node:8
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY ./package*.json ./
 RUN npm install --only=production && npm cache clean --force
 
-COPY . .
+COPY ./app/ .
 
 CMD [ "node", "index.js" ]

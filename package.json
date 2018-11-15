@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "integration": "mocha test/integration/test-*.js",
-    "docs": "./node_modules/.bin/esdoc"
+    "integration": "NODE_ENV=docker NODE_CONFIG_DIR=./app/config mocha test/integration/test-*.js",
+    "start": "NODE_CONFIG_DIR=./app/config node ./app/index.js"
   },
   "author": "",
   "license": "ISC",
