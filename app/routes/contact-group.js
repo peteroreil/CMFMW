@@ -11,15 +11,6 @@ function update(id, group) {
     return GroupService.updateGroupById(id, group)
 }
 
-module.exports.create = (req, res) => {
-    GroupService.createGroup(req.body)
-        .then((group) => res.status(200).json(group))
-        .catch((err)  => { 
-            logger.error(err.stack)
-            res.status(500).json({ message: err.message });
-        });
-}
-
 module.exports.updateById = (req, res) => {
     const group = req.body;
     const id = group._id || req.params.id;

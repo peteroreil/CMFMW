@@ -7,15 +7,6 @@ function update(id, contact) {
     return ContactService.updateContactById(id, contact)
 }
 
-module.exports.create = (req, res) => {
-    ContactService.createContact(req.body)
-        .then((contact) => res.status(200).json(contact))
-        .catch((err)  => { 
-            logger.error(err.stack)
-            res.status(500).json({ message: err.message });
-        });
-}
-
 module.exports.find = (req, res) => {
     const query = req.query;
     ContactService.findContacts(query)

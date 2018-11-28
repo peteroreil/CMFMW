@@ -21,7 +21,7 @@ const TEST_DB_PORT = database.port;
 const serviceURL = `http://${HOSTNAME}:${PORT}/${API_VERSION}`;
 const databaseURL = `mongodb://${TEST_DB_USER}:${TEST_DB_PASS}@${TEST_DB_HOST}:${TEST_DB_PORT}/${TEST_DB_NAME}`;
 
-//a request wrapper around the service endpoint
+// a request wrapper around the service endpoint
 const client = {};
 
 client.createContact = function(contact) {
@@ -51,7 +51,7 @@ client.getContacts = function(contacts) {
 }
 
 client.updateContact = function(contact, id) {
-    let resource = (id == null) ? '/contact' : `/contact/${id}` 
+    let resource = (id == null) ? 'contact' : `contact/${id}` 
     return request({
         method: 'PUT',
         uri: `${module.exports.serviceURL}/${resource}`,
@@ -60,6 +60,54 @@ client.updateContact = function(contact, id) {
         resolveWithFullResponse: true
     });        
 }
+
+client.createGroup = function(contactGroup) {
+    return request({
+        method: 'POST',
+        uri: `${module.exports.serviceURL}/group`,
+        body: contactGroup,
+        json: true,
+        resolveWithFullResponse: true
+    });
+}
+
+client.updateGroup = function(updatedGroup, id) {
+    let resource = (id == null) ? 'group' : `group/${id}`
+    return request({
+        method: 'PUT',
+        uri: `${module.exports.serviceURL}/${resource}`,
+        body: updatedGroup,
+        json: true,
+        resolveWithFullResponse: true
+    });    
+}
+
+client.getContactGroup = function(groupId) {
+    return request({
+        uri: `${module.exports.serviceURL}/group/${groupId}`,
+        resolveWithFullResponse: true,
+        json: true,            
+    });   
+}
+
+client.getGroups = function() {
+    return request({
+        uri: `${module.exports.serviceURL}/group`,
+        resolveWithFullResponse: true,
+        simple: false,
+        json: true,            
+    });     
+}
+
+client.deleteGroup = function(id) {
+    return request({
+        method: 'DELETE',
+        uri: `${module.exports.serviceURL}/group/${id}`,
+        json: true,
+        resolveWithFullResponse: true
+    });    
+}
+
 
 module.exports.databaseURL = databaseURL;
 module.exports.serviceURL = serviceURL;
